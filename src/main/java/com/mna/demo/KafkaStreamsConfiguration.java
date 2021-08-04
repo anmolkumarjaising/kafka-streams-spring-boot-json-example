@@ -49,7 +49,7 @@ public class KafkaStreamsConfiguration {
         return new StreamsConfig(props);
     }
 	
-    @Bean
+    @Autowired
     public KStream<String, Test> kStreamJson(StreamsBuilder builder) {
     	KStream<String, Test> stream = builder.stream("streams-json-input", Consumed.with(Serdes.String(), new JsonSerde<>(Test.class)));
     	
